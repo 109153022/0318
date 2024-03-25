@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.txtCM = new System.Windows.Forms.TextBox();
             this.btnAllClear = new System.Windows.Forms.Button();
-            this.txtlnfo = new System.Windows.Forms.TextBox();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.txtYard = new System.Windows.Forms.TextBox();
             this.txtFt = new System.Windows.Forms.TextBox();
             this.txtIn = new System.Windows.Forms.TextBox();
@@ -73,13 +73,14 @@ namespace WindowsFormsApp1
             this.btnAllClear.TabIndex = 2;
             this.btnAllClear.Text = "清除";
             this.btnAllClear.UseVisualStyleBackColor = true;
+            this.btnAllClear.Click += new System.EventHandler(this.btnAllClear_Click);
             // 
-            // txtlnfo
+            // txtInfo
             // 
-            this.txtlnfo.Location = new System.Drawing.Point(21, 380);
-            this.txtlnfo.Name = "txtlnfo";
-            this.txtlnfo.Size = new System.Drawing.Size(179, 22);
-            this.txtlnfo.TabIndex = 5;
+            this.txtInfo.Location = new System.Drawing.Point(21, 380);
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.Size = new System.Drawing.Size(179, 22);
+            this.txtInfo.TabIndex = 5;
             // 
             // txtYard
             // 
@@ -87,6 +88,7 @@ namespace WindowsFormsApp1
             this.txtYard.Name = "txtYard";
             this.txtYard.Size = new System.Drawing.Size(179, 22);
             this.txtYard.TabIndex = 6;
+            this.txtYard.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtYard_KeyUp);
             // 
             // txtFt
             // 
@@ -94,6 +96,7 @@ namespace WindowsFormsApp1
             this.txtFt.Name = "txtFt";
             this.txtFt.Size = new System.Drawing.Size(179, 22);
             this.txtFt.TabIndex = 7;
+            this.txtFt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFt_KeyUp);
             // 
             // txtIn
             // 
@@ -101,6 +104,7 @@ namespace WindowsFormsApp1
             this.txtIn.Name = "txtIn";
             this.txtIn.Size = new System.Drawing.Size(179, 22);
             this.txtIn.TabIndex = 8;
+            this.txtIn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIn_KeyUp);
             // 
             // txtKM
             // 
@@ -108,6 +112,7 @@ namespace WindowsFormsApp1
             this.txtKM.Name = "txtKM";
             this.txtKM.Size = new System.Drawing.Size(179, 22);
             this.txtKM.TabIndex = 9;
+            this.txtKM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtKM_KeyUp);
             // 
             // txtM
             // 
@@ -115,6 +120,7 @@ namespace WindowsFormsApp1
             this.txtM.Name = "txtM";
             this.txtM.Size = new System.Drawing.Size(179, 22);
             this.txtM.TabIndex = 10;
+            this.txtM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtM_KeyUp);
             // 
             // label2
             // 
@@ -195,7 +201,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.txtIn);
             this.Controls.Add(this.txtFt);
             this.Controls.Add(this.txtYard);
-            this.Controls.Add(this.txtlnfo);
+            this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnAllClear);
             this.Controls.Add(this.txtCM);
             this.Controls.Add(this.label1);
@@ -211,7 +217,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCM;
         private System.Windows.Forms.Button btnAllClear;
-        private System.Windows.Forms.TextBox txtlnfo;
+        private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.TextBox txtYard;
         private System.Windows.Forms.TextBox txtFt;
         private System.Windows.Forms.TextBox txtIn;
