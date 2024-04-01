@@ -28,17 +28,98 @@ namespace WindowsFormsApp1
             // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtM.Text = string.Format("{0:0.##########}", douOutput / 100);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput / 100000);
-                txtIn.Text = string.Format("{0:0.##########}", douOutput / 2.54);
-                txtFt.Text = string.Format("{0:0.##########}", douOutput / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput / 91.44);
+                caculateAnswer(0, douOutput);
             }
             else
             {
                 // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
                 txtInfo.Text = "請輸入數字";
                 txtCM.Text = "";
+            }
+        }
+
+        private void txtM_KeyUp(object sender, EventArgs e)
+        {
+            strInput = txtM.Text; // 將txtCM文字框的值放入strInput變數
+
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(1, douOutput * 100);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtM.Text = "";
+            }
+        }
+
+        private void txtKM_KeyUp(object sender, EventArgs e)
+        {
+            strInput = txtKM.Text; // txtKM
+
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(2, douOutput * 10000);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtKM.Text = "";
+            }
+        }
+
+        private void txtIn_KeyUp(object sender, EventArgs e)
+        {
+            strInput = txtIn.Text; // txtIn
+
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(3, douOutput * 2.54);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtIn.Text = "";
+            }
+        }
+
+        private void txtFt_KeyUp(object sender, EventArgs e)
+        {
+            strInput = txtFt.Text; // txtFt
+
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(4, douOutput * 30.48);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtFt.Text = "";
+            }
+        }
+
+        private void txtYard_KeyUp(object sender, EventArgs e)
+        {
+            strInput = txtYard.Text; // txtFt
+
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(5, douOutput * 91.44);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtYard.Text = "";
             }
         }
 
@@ -50,111 +131,25 @@ namespace WindowsFormsApp1
             txtIn.Text = "";
             txtFt.Text = "";
             txtYard.Text = "";
+            txtInfo.Text = "";
         }
 
-        private void txtM_KeyUp(object sender, KeyEventArgs e)
+        // 設計一個單位轉換計算的函式，沒有回傳值，設計兩個參數，1.類別參數、2.數值參數
+        private void caculateAnswer(int _kind, double _value)
         {
-            strInput = txtM.Text; // 將txtM文字框的值放入strInput變數
-
-            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
-            if (double.TryParse(strInput, out douOutput) == true)
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 100);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput / 1000);
-                txtIn.Text = string.Format("{0:0.##########}", douOutput * 39.37);
-                txtFt.Text = string.Format("{0:0.##########}", douOutput * 3.28084);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 1.09361);
-            }
-            else
-            {
-                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtM文字框清除
-                txtInfo.Text = "請輸入數字";
-                txtM.Text = "";
-            }
-        }
-
-        private void txtKM_KeyUp(object sender, KeyEventArgs e)
-        {
-                strInput = txtKM.Text; // 將txtM文字框的值放入strInput變數
-
-            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
-            if (double.TryParse(strInput, out douOutput) == true)
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 100000);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 1000);
-                txtIn.Text = string.Format("{0:0.##########}", douOutput * 39370);
-                txtFt.Text = string.Format("{0:0.##########}", douOutput * 3280.84);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 10936.1);
-            }
-            else
-            {
-                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtM文字框清除
-                txtInfo.Text = "請輸入數字";
-                txtKM.Text = "";
-            }
-        }
-        private void txtIn_KeyUp(object sender, KeyEventArgs e)
-        {
-            strInput = txtIn.Text; // 將txtM文字框的值放入strInput變數
-
-            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
-            if (double.TryParse(strInput, out douOutput) == true)
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 2.54);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 0.0254);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.00003);
-                txtFt.Text = string.Format("{0:0.##########}", douOutput * 0.08333);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 0.02778);
-            }
-            else
-            {
-                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtM文字框清除
-                txtInfo.Text = "請輸入數字";
-                txtIn.Text = "";
-            }
-        }
-
-        private void txtFt_KeyUp(object sender, KeyEventArgs e)
-        {
-            strInput = txtFt.Text; // 將txtM文字框的值放入strInput變數
-
-            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
-            if (double.TryParse(strInput, out douOutput) == true)
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 30.48);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 0.3048);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0003048);
-                txtIn.Text = string.Format("{0:0.##########}", douOutput * 12);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 0.3333);
-            }
-            else
-            {
-                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtM文字框清除
-                txtInfo.Text = "請輸入數字";
-                txtFt.Text = "";
-            }
-
-        }
-
-        private void txtYard_KeyUp(object sender, KeyEventArgs e)
-        {
-            strInput = txtYard.Text; // 將txtM文字框的值放入strInput變數
-
-            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
-            if (double.TryParse(strInput, out douOutput) == true)
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 91.44);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 0.9144);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0009144);
-                txtIn.Text = string.Format("{0:0.##########}", douOutput * 36);
-                txtFt.Text = string.Format("{0:0.##########}", douOutput * 3);
-            }
-            else
-            {
-                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtM文字框清除
-                txtInfo.Text = "請輸入數字";
-                txtYard.Text = "";
-            }
+            if (_kind != 0)
+                txtCM.Text = string.Format("{0:0.##########}", _value);
+            if (_kind != 1)
+                txtM.Text = string.Format("{0:0.##########}", _value / 100);
+            if (_kind != 2)
+                txtKM.Text = string.Format("{0:0.##########}", _value / 100000);
+            if (_kind != 3)
+                txtIn.Text = string.Format("{0:0.##########}", _value / 2.54);
+            if (_kind != 4)
+                txtFt.Text = string.Format("{0:0.##########}", _value / 30.48);
+            if (_kind != 5)
+                txtYard.Text = string.Format("{0:0.##########}", _value / 91.44);
         }
     }
 }
+
